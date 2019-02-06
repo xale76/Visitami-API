@@ -124,11 +124,12 @@ Questa chiamata produrrà un JSON di questo tipo:
 
 E' possibile invocare questa API specificando le coordinate GPS anzichè la città
 
-    Public Function APIGEN_DoSearch(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByRef lErr As String) As String
+    Public Function APIGEN_DoSearch(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByRef lErr As String) As String
     
 * idcate     = Id univoco Categoria Prestazioni
 * lat        = stringa della latitudine (usare ".", es. "45.12312312")
 * lng        = stringa della longitudine (usare ".", es. "9.12312312")
+* km         = raggio di ricerca in Km
 * lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 La chiamata produrrà il JSON della chiamata <b>Ricercare Professionisti (Semplice)</b>
@@ -210,7 +211,7 @@ Per ottenere il <b>Token Prenotazione</b> è necessario invocare il seguente met
 
     Public Function APIGEN_CreaTokenPrenoSimple(ByVal usertoken As String, ByVal idprest As Integer, ByVal codCitta As String, ByRef lErr As String) As String
     
-* usertoken     = Id univoco Categoria Prestazioni
+* usertoken     = Token User
 * idprest       = Id della prestazione
 * codCitta   = Codice Univoco che identifica la città
 * lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
@@ -228,15 +229,43 @@ Per ottenere il <b>Token Prenotazione</b> è possibile invocare il seguente meto
 
     Public Function APIGEN_CreaTokenPreno(ByVal usertoken As String, ByVal idprest As Integer, ByVal lat As String, ByVal lng As String, ByVal km As Integer, ByRef lErr As String) As String
     
-* idcate     = Id univoco Categoria Prestazioni
-* codCitta   = Codice Univoco che identifica la città
-* lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+* usertoken     = Token User
+* idprest       = Id della prestazione
+* lat           = stringa della latitudine (usare ".", es. "45.12312312")
+* lng           = stringa della longitudine (usare ".", es. "9.12312312")
+* km            = raggio di ricerca in Km
+* lErr (out)    = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 Il metodo restituisce direttamente un JSON di questo tipo:
 
     {"TokenPreno":"<TOKEN PRENO"}
 
 * TokenPreno     = token di prenotazione, altrimenti il metodo non ha restituito nulla
+
+# Gestione Prenotazioni User
+
+E' disponibile un metodo che restituisce le prenotazioni dell'utente Paziente
+
+    Public Function APIGEN_GetPrenoUser(ByVal usertoken As String, ByRef lErr As String) As String
+
+* usertoken      = Token User
+
+Il metodo restituisce un JSON tipo questo:
+
+<b>Al momento in fase di definizione</b>
+
+# Cancellazione di una Prenotazione User
+
+E' disponibile un metodo per cancellare una prenotazione effettuata:
+
+     Public Function APIGEN_DeletePrenoUser(ByVal usertoken As String, ByVal single_prenotoken As String, ByRef lErr As String) As String
+ 
+* usertoken         = Token User
+* single_prenotoken = Token Prenotazione Singola
+
+Il metodo restituisce un JSON tipo questo:
+
+<b>Al momento in fase di definizione</b>
 
 # Widget Dinamico di Prenotazione
 
