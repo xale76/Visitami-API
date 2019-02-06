@@ -169,7 +169,7 @@ Questo metodo aggiorna un utente su Visitami.
 
 La chiamata produrrà un JSON che indica il successo dell'operazione:
      
-     {"status":"success"}
+     {"status":"success","type":""}
 
 * status     = success, o la chiamata non ha restituito nulla 
 
