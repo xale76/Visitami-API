@@ -188,4 +188,32 @@ La chiamata produrrà un JSON che indica il successo dell'operazione:
 * status     = success, o la chiamata non ha restituito nulla 
 * type       = può assumere: TOTALE/PARZIALE asseconda della marcatura dell'utente su Visitami.
 
+# Controllo Utente (Paziente)
+
+Questo metodo server per controllare la validità del <b>legame</b> tra applicazione richiedente e Visitami.
+
+    Public Function APIGEN_CheckUser(ByVal usertoken As String, ByRef lErr As String) As String
+
+* usertoken     = Token Paziente
+* lErr (out)    = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+
+La chiamata produrrà un JSON che indica il successo dell'operazione:
+     
+     {"status":"success"}
+
+* status     = success, o la chiamata non ha restituito nulla 
+
+# Creazione Token di Prenotazione
+
+Per invocare il <b>Widget Dinamico</b>
+
+
+
+
+# Widget Dinamico di Prenotazione
+
+    <!-- INIZIO CODICE WIDGET VISITAMIHTML5/ALTRO --><script type="text/javascript" src="https://www.visitamiapp.com/widget?token=<TOKEN PROF>&TokenPreno=<TOKEN PRENO>idluogo=0&nojquery=auto&qfit=1&urlback=&maincolor=f07f22&cpayload=&ShowNomePrest=1&fbw=&fbmleft=&showdispora=0&idesterno=&bfontsize=&nomobile=0&showinfo=0&nopayload=1&fbscope=1&no_orari_ext=1"></script><div style="position:relative;width:396px;height:446px;max-width:99%;font-size:0.9em"><div id="VISITAMI_CONTAINER" style="position:absolute;width:100%;height:100%;top:0;left:0;"></div><div style="font-size: 0.9em; width: 100%; height: 18px; line-height: 18px; position: absolute; bottom: 0px; left: 0px; text-align: right;">servizio gratuito powered by <span style="color:#f07f22"><b><a href="https://www.visitamiapp.com/" target="_blank" style="color:#f07f22">Visitami</a></b></span></div></div>
+<!-- FINE CODICE WIDGET VISITAMI -->
+
+
 
