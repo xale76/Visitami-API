@@ -11,6 +11,7 @@ b) Comunicare la URL certificata (https) da cui far provenire le richieste in mo
 # Url API
 
 Esistono 2 url, uno di sviluppo e l'altro di produzione:
+
 <i> Sviluppo </i>
 https://demo.visitamiapp.com/app_api_web/genApi.asmx (possibile visionare WSDL)
 
@@ -29,7 +30,14 @@ Il <b>Token Utilizzo</b> ha una scadenza di 30 giorni, dopo i quali va rinnovato
 
     Public Function APIGEN_TokenRenew(ByRef lErr As String) As String
 
+Questa chiamata, produrrà un JSON di questo tipo
 
+    {"token":"<TOKEN UTILIZZO>","issued":1497,"validuntil":1527,"UTCdatetime":"20190308"}
+
+* Token      = Token Utilizzo per le successive chiamate API
+* issued     = id del giorno di richiesta
+* validuntil = id del giorno di fine validità
+* UTCdatetime= data ultimo giorno di validità nel formato yyyyMMdd
     
 
 
