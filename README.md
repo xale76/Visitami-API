@@ -275,11 +275,7 @@ Il metodo restituisce un JSON tipo questo:
 
 Per effettuare le prenotazioni è necessario incollare il seguente codice nella pagina che ospiterà il <b>Widget Dinamico di Prenotazione</b> Visitami. Questo widget mostrerà il dettaglio del professionista scelto 
 
-    <!-- INIZIO CODICE WIDGET VISITAMIHTML5/ALTRO -->
-<script type="text/javascript" src="https://www.visitamiapp.com/widget?token=<TOKEN PROF>&TokenPreno=<TOKEN PRENO>&idluogo=0&nojquery=auto&qfit=1&urlback=&maincolor=f07f22&cpayload=&ShowNomePrest=1&fbw=&fbmleft=&showdispora=0&idesterno=&bfontsize=&nomobile=0&showinfo=0&nopayload=1&fbscope=1&no_orari_ext=0"></script>
-<div id="VISITAMI_CONTAINER_INFO" style="background-color:white;position:relative;width:396px;height:262px;max-width:99%;font-size:0.9em;line-height:1.2em"></div>
-<div style="position:relative;width:396px;height:446px;max-width:99%;font-size:0.9em"><div id="VISITAMI_CONTAINER" style="position:absolute;width:100%;height:100%;top:0;left:0;"></div><div style="font-size: 0.9em; width: 100%; height: 18px; line-height: 18px; position: absolute; bottom: 0px; left: 0px; text-align: right;">servizio gratuito powered by <span style="color:#f07f22"><b><a href="https://www.visitamiapp.com/" target="_blank" style="color:#f07f22">Visitami</a></b></span></div></div>
-<!-- FINE CODICE WIDGET VISITAMI -->
+    <!-- INIZIO CODICE WIDGET VISITAMIHTML5/ALTRO --><script type="text/javascript" src="https://www.visitamiapp.com/widget?token=<TOKEN PROF>&TokenPreno=<TOKEN PRENO>&idluogo=0&nojquery=auto&qfit=1&urlback=&maincolor=f07f22&cpayload=&ShowNomePrest=1&fbw=&fbmleft=&showdispora=0&idesterno=&bfontsize=&nomobile=0&showinfo=0&nopayload=1&fbscope=1&no_orari_ext=0"></script><div id="VISITAMI_CONTAINER_INFO" style="background-color:white;position:relative;width:396px;height:262px;max-width:99%;font-size:0.9em;line-height:1.2em"></div><div style="position:relative;width:396px;height:446px;max-width:99%;font-size:0.9em"><div id="VISITAMI_CONTAINER" style="position:absolute;width:100%;height:100%;top:0;left:0;"></div><div style="font-size: 0.9em; width: 100%; height: 18px; line-height: 18px; position: absolute; bottom: 0px; left: 0px; text-align: right;">servizio gratuito powered by <span style="color:#f07f22"><b><a href="https://www.visitamiapp.com/" target="_blank" style="color:#f07f22">Visitami</a></b></span></div></div><!-- FINE CODICE WIDGET VISITAMI -->
 
 
 
