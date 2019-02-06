@@ -103,7 +103,7 @@ Questa chiamata produrrà un JSON di questo tipo:
 * Sesso              = M/F/S ( S=struttura)
 * UrlImmagine        = URL dell'immagine del professionista/struttura
 * Valutazione        = Rating (da 1 a 5). Valore -1 = nessuna valutazione espressa
-* TokenProf          = Token Professioinsta da utilizzare nel <b>Widget dinamico</b>
+* TokenProf          = <b>Token Professioinsta</b> da utilizzare nel <b>Widget dinamico</b>
 * IDVisitami         = Id univoco Professionista in Visitami
 * IdPrestazione      = Id univoco della Prestazione in Visitami
 * PrimaDisponibilita = classe che esprime la prima disponiblità del professionista:
@@ -150,7 +150,7 @@ In particolare: un Utente non presente in Visitami verrà marcato su Visitami co
 * phone        = Telefono del Paziente (opzionale, verrà comunque richiesto prima della prenotazione su Widget Dinamico). Può essere usato per ricercare la presenza in Visitami.
 * lErr (out)   = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
-La chiamata produrrà un JSON contenente il Token di accesso:
+La chiamata produrrà un JSON contenente il Token di accesso (<b>Token User</b>):
 
      {"usertoken":"<TOKEN USER>"}
 
@@ -160,7 +160,7 @@ Questo metodo aggiorna un utente su Visitami.
 
     Public Function APIGEN_UpdUser(ByVal usertoken As String, ByVal nome As String, ByVal cognome As String, ByVal phone As String, ByRef lErr As String) As String
    
-* usertoken     = Token Paziente
+* usertoken     = Token User
 * nome          = Nome del Paziente
 * cognome       = Cognome del Paziente
 * phone         = Telefono del Paziente
@@ -178,7 +178,7 @@ Questo metodo serve per eliminare il paziente su Visitami o il relativo <b>Legam
 
     Public Function APIGEN_DeleteUser(ByVal usertoken As String, ByRef lErr As String) As String
 
-* usertoken     = Token Paziente
+* usertoken     = Token User
 * lErr (out)    = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 La chiamata produrrà un JSON che indica il successo dell'operazione:
@@ -194,7 +194,7 @@ Questo metodo server per controllare la validità del <b>legame</b> tra applicaz
 
     Public Function APIGEN_CheckUser(ByVal usertoken As String, ByRef lErr As String) As String
 
-* usertoken     = Token Paziente
+* usertoken     = Token User
 * lErr (out)    = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 La chiamata produrrà un JSON che indica il successo dell'operazione:
@@ -203,12 +203,40 @@ La chiamata produrrà un JSON che indica il successo dell'operazione:
 
 * status     = success, o la chiamata non ha restituito nulla 
 
+# Creazione Token di Prenotazione (Semplice)
+
+Per invocare il <b>Widget Dinamico</b> è necessario possedere il <b>Token Professionista</b> ed il <b>Token Prenotazione</b>.
+Per ottenere il <b>Token Prenotazione</b> è necessario invocare il seguente metodo:
+
+    Public Function APIGEN_CreaTokenPrenoSimple(ByVal usertoken As String, ByVal idprest As Integer, ByVal codCitta As String, ByRef lErr As String) As String
+    
+* usertoken     = Id univoco Categoria Prestazioni
+* idprest       = Id della prestazione
+* codCitta   = Codice Univoco che identifica la città
+* lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+
+Il metodo restituisce direttamente un JSON di questo tipo:
+
+    {"TokenPreno":"<TOKEN PRENO"}
+
+* TokenPreno     = token di prenotazione, altrimenti il metodo non ha restituito nulla
+
 # Creazione Token di Prenotazione
 
-Per invocare il <b>Widget Dinamico</b>
+Per invocare il <b>Widget Dinamico</b> è necessario possedere il <b>Token Professionista</b> ed il <b>Token Prenotazione</b>.
+Per ottenere il <b>Token Prenotazione</b> è possibile invocare il seguente metodo a cui passare le coordinate GPS ed il raggio.
 
+    Public Function APIGEN_CreaTokenPreno(ByVal usertoken As String, ByVal idprest As Integer, ByVal lat As String, ByVal lng As String, ByVal km As Integer, ByRef lErr As String) As String
+    
+* idcate     = Id univoco Categoria Prestazioni
+* codCitta   = Codice Univoco che identifica la città
+* lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
+Il metodo restituisce direttamente un JSON di questo tipo:
 
+    {"TokenPreno":"<TOKEN PRENO"}
+
+* TokenPreno     = token di prenotazione, altrimenti il metodo non ha restituito nulla
 
 # Widget Dinamico di Prenotazione
 
