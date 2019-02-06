@@ -7,6 +7,7 @@ Questo progetto contiene l'elenco delle funzionalità per l'integrazione con le 
 
 a) Concordare per l'acquisizione di un <b>Token Applicazione</b>.
 b) Comunicare la URL certificata (https) da cui far provenire le richieste in modo che questa venga aggiunta alle URL per cui esiste un grant per le API.
+c) Conoscere ed eventualmente mappare le Categorie di Prestazioni presenti su Visitami
 
 # Url API
 
@@ -42,7 +43,7 @@ Questa chiamata produrrà un JSON di questo tipo:
     
 # Ricavare Città (necessario avere Token Utilizzo)
 
-Sono previsti due metodi per ricavare l'elenco delle Città di copertura del servizio Visitami abilitate alle API e per ricavare l'elenco delle Categorie di Prestazioni su Visitami.
+E' previsto un metodo per ricavare l'elenco delle Città di copertura del servizio Visitami abilitate alle API:
 
     Public Function APIGEN_GetCitta(ByRef lErr As String) As String
     
@@ -58,7 +59,16 @@ Questa chiamata produrrà un JSON di questo tipo:
 
 # Ricavare Elenco delle Categorie di Prestazioni (necessario avere Token Utilizzo)
 
+E' previsto un metodo per ricavare l'elenco delle Categorie di Prestazioni presenti su Visitami:
 
+    Public Function APIGEN_GetCategorie(ByRef lErr As String) As String
+
+Questa chiamata produrrà un JSON di questo tipo:
+
+    [{"IdCategoria":56,"Nome":"Agopuntore"},{"IdCategoria":10,"Nome":"Allergologo-Immunologo"},{"IdCategoria":53,"Nome":"Andrologo"},{"IdCategoria":11,"Nome":"Angiologo-Chirurgo Vascolare"},....]
+    
+* IdCategoria   = Id univoco Categoria
+* Nome          = nome della categoria da mostrare
 
 
 
