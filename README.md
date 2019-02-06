@@ -23,6 +23,7 @@ https://www.visitamiapp.com/app_api_web/genApi.asmx (WSDL bloccato)
 # Chiamate API
 
 Tutte le chiamate API prevedono una chiamata SOAP/Ajax con il passaggio di un token (alcune prevedono il passaggio del <b>Token Applicazione</b>, altre del <b>Token Utilizzo</b>) come parte dell'Header SOAP. Tutte le chiamate restituiscono JSON.
+
 <i>vedere esempio nel file <b>token.php</b></i>
 
 # Ricavare il Token Utilizzo (necessario possedere Token Applicazione)
@@ -65,6 +66,7 @@ Questa chiamata produrrà un JSON di questo tipo:
 * lng      = longitudine
 * codice   = Codice Univoco che identifica la città
 * raggio   = raggio in Km di copertura a partire dalle coordinate gps
+
 <i>vedere esempio nel file <b>ricerca.php</b></i>
 
 # Ricavare Elenco delle Categorie di Prestazioni
@@ -81,6 +83,7 @@ Questa chiamata produrrà un JSON di questo tipo:
     
 * IdCategoria   = Id univoco Categoria Prestazioni
 * Nome          = nome della categoria da mostrare
+
 <i>vedere esempio nel file <b>ricerca.php</b></i>
 
 # Ricerca dei Professionisti (Semplice)
@@ -121,6 +124,7 @@ Questa chiamata produrrà un JSON di questo tipo:
   * Sconto           = Label che rappresenta lo Sconto % eventualmente applicato
   * ScontoD          = Valore decimale dello sconto applicato. 0=nessuno sconto
   * Distanza         = Distanza del luogo dal centro di ricerca individuato da Lat e Lng
+  
 <i>vedere esempio nel file <b>ricerca.php</b></i>
 
 # Ricerca dei Professionisti
@@ -244,6 +248,7 @@ Il metodo restituisce direttamente un JSON di questo tipo:
     {"TokenPreno":"<TOKEN PRENO"}
 
 * TokenPreno     = token di prenotazione, altrimenti il metodo non ha restituito nulla
+
 <i>vedere esempio nel file <b>token-preno.php</b></i>
 
 # Gestione Prenotazioni User
