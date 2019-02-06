@@ -6,9 +6,13 @@ Questo progetto contiene l'elenco delle funzionalità per l'integrazione con le 
 # Prerequisiti
 
 a) Concordare per l'acquisizione di un <b>Token Applicazione</b>;
+
 b) Comunicare la URL certificata (https) da cui far provenire le richieste in modo che questa venga aggiunta alle URL per cui esiste un grant per le API;
+
 c) Definire una propria pagina in cui ospitare il <b>Widget Dinamico</b> di prenotazione Visitami;
+
 d) Conoscere ed eventualmente mappare le Categorie di Prestazioni presenti su Visitami;
+
 
 # Url API
 
