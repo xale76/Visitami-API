@@ -65,6 +65,7 @@ Questa chiamata produrrà un JSON di questo tipo:
 * lng      = longitudine
 * codice   = Codice Univoco che identifica la città
 * raggio   = raggio in Km di copertura a partire dalle coordinate gps
+<i>vedere esempio nel file <b>ricerca.php</b></i>
 
 # Ricavare Elenco delle Categorie di Prestazioni
 
@@ -80,6 +81,7 @@ Questa chiamata produrrà un JSON di questo tipo:
     
 * IdCategoria   = Id univoco Categoria Prestazioni
 * Nome          = nome della categoria da mostrare
+<i>vedere esempio nel file <b>ricerca.php</b></i>
 
 # Ricerca dei Professionisti (Semplice)
 
@@ -119,7 +121,8 @@ Questa chiamata produrrà un JSON di questo tipo:
   * Sconto           = Label che rappresenta lo Sconto % eventualmente applicato
   * ScontoD          = Valore decimale dello sconto applicato. 0=nessuno sconto
   * Distanza         = Distanza del luogo dal centro di ricerca individuato da Lat e Lng
- 
+<i>vedere esempio nel file <b>ricerca.php</b></i>
+
 # Ricerca dei Professionisti
 
 E' possibile invocare questa API specificando le coordinate GPS anzichè la città
@@ -241,6 +244,7 @@ Il metodo restituisce direttamente un JSON di questo tipo:
     {"TokenPreno":"<TOKEN PRENO"}
 
 * TokenPreno     = token di prenotazione, altrimenti il metodo non ha restituito nulla
+<i>vedere esempio nel file <b>token-preno.php</b></i>
 
 # Gestione Prenotazioni User
 
