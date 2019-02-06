@@ -81,9 +81,10 @@ Questa chiamata produrrà un JSON di questo tipo:
 * IdCategoria   = Id univoco Categoria Prestazioni
 * Nome          = nome della categoria da mostrare
 
-# Ricercare Professionisti (Semplice)
+# Ricerca dei Professionisti (Semplice)
 
-Questo metodo restituisce l'elenco dei professionisti disponibili per una data categoria. L'elenco del professionisti restituiti mostra solo la prima disponibilità per la <i>prestazione base</i> della categoria prestazioni richiesta (ad es. se categoria = "Medico Generico", prestazione di base = "Visita medica generica" etc). 
+Questo metodo restituisce l'elenco dei professionisti disponibili per una data categoria <b>in studio</b>. In questa versione di API non è prevista la ricerca a domicilio.
+L'elenco del professionisti restituiti mostra solo la prima disponibilità per la <i>prestazione base</i> della categoria prestazioni richiesta (ad es. se categoria = "Medico Generico", prestazione di base = "Visita medica generica" etc). 
 L'elenco restituito è ordinato per prima disponibilità.
 
     Public Function APIGEN_DoSearchSimple(ByVal idcate As Integer, ByVal codCitta As String, ByRef lErr As String) As String
@@ -103,7 +104,58 @@ Questa chiamata produrrà un JSON di questo tipo:
 * UrlImmagine        = URL dell'immagine del professionista/struttura
 * Valutazione        = Rating (da 1 a 5). Valore -1 = nessuna valutazione espressa
 * TokenProf          = Token Professioinsta da utilizzare nel <b>Widget dinamico</b>
-* IDVisitami         = Id Univoco Professionista in Visitami
-* IdPrestazione      = Id Univoco della Prestazione in Visitami
+* IDVisitami         = Id univoco Professionista in Visitami
+* IdPrestazione      = Id univoco della Prestazione in Visitami
 * PrimaDisponibilita = classe che esprime la prima disponiblità del professionista:
   * IdIday           = Id del giorno di prima disponibilità
+  * IdHour           = Id dell'ora di prima disponibilità
+  * Data             = Data della prima disponibilità
+  * Ora              = Ora della prima disponibilità
+  * Luogo            = Descrizione del luogo dell'appuntamento
+  * Indirizzo        = Indirizzo per esteso del luogo dell'appuntamento
+  * IdLuogo          = Id univoco del luogo
+  * Tariffa          = Tariffa prevista per la prestazione. Le tariffe sono espresse in € e possono essere variabili (per es. 50-70€)
+  * TariffaScontata  = Se presente uno sconto, rappresenta il prezzo che pagherà il paziente
+  * Sconto           = Label che rappresenta lo Sconto % eventualmente applicato
+  * ScontoD          = Valore decimale dello sconto applicato. 0=nessuno sconto
+  * Distanza         = Distanza del luogo dal centro di ricerca individuato da Lat e Lng
+ 
+# Ricerca dei Professionisti
+
+E' possibile invocare questa API specificando le coordinate GPS anzichè la città
+
+    Public Function APIGEN_DoSearch(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByRef lErr As String) As String
+    
+* idcate     = Id univoco Categoria Prestazioni
+* lat        = stringa della latitudine (usare ".", es. "45.12312312")
+* lng        = stringa della longitudine (usare ".", es. "9.12312312")
+* lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+
+La chiamata produrrà il JSON della chiamata <b>Ricercare Professionisti (Semplice)</b>
+
+# Creazione Utente
+
+Questo metodo serve per creare una corrispondenza tra utente dell'applicazione chiamante ed utente (paziente) di Visitami. Questo metodo restituisce il <b>Token User</b> univoco del paziente su Visitami e dovrà essere salvato nell'applicazione richiedente (<b>legame tra applicazione richiedente e Visitami</b>) e usato ove richiesto nei successivi metodi.
+
+Se viene riconosciuta una corrispondenza tra dati passati e dati già presenti su Visitami, non verrà creata una nuova posizione, ma verrà restituita la posizione trovata.
+
+NB: il passaggio di dati da applicazione richiedente a Visitami prevede una gestione della titolarità dei dati passati.
+In particolare: un Utente non presente in Visitami verrà marcato su Visitami come proveniente da applicazione richiedente a cui spetta la titolarità dei dati. Una richiesta di cancellazione su applicazione richiedente implica una cancellazione dei dati su Visitami secondo quanto regolato dalla Privacy Policy indicata all'indirizzo https://www.visitamiapp.com/note-legali. Per un utente in queste condizioni che acceda indipendentemente a Visitami, accettettando esplicitamente la suddetta privacy policy, verrà predisposto un aggiornamento della marcatura a "Cogestito", ossia presente in entrambe le piattaforme; un Utente già presente in Visitami verrà marcato come "Cogestito" in termini di titolarità. Una cancellazione su applicazione richiedente implicherà la cancellazione del <b>legame tra applicazione richiedente e Visitami</b> e il relativo aggiornamento della marcatura a "Solo Visitami", ma non la cancellazione su Visitami.
+
+     Public Function APIGEN_NewUser(ByVal nome As String, ByVal cognome As String, ByVal email As String, ByVal phone As String, ByRef lErr As String) As String
+    
+* nome         = Nome del Paziente
+* cognome      = Cognome del Paziente
+* email        = Email del Paziente (campo su cui viene ricercata la presenza in Visitami)
+* phone        = Telefono del Paziente (opzionale, verrà comunque richiesto prima della prenotazione su Widget Dinamico)
+* lErr (out)   = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+
+La chiamata produrrà un JSON contenente il Token di accesso.
+
+     {"usertoken":"<TOKEN USER>"}
+
+
+
+     
+
+
