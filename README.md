@@ -24,7 +24,7 @@ https://www.visitamiapp.com/app_api_web/genApi.asmx (WSDL bloccato)
 Tutte le chiamate API prevedono una chiamata SOAP/Ajax con il passaggio di un token (alcune prevedono il passaggio del <b>Token Applicazione</b>, altre del <b>Token Utilizzo</b>) come parte dell'Header SOAP.
 <i>vedere esempio nel file <b>token.php</b></i>
 
-# Ricavare il Token Utilizzo (necessario avere Token Applicazione)
+# Ricavare il Token Utilizzo (necessario possedere Token Applicazione)
 
 Il <b>Token Applicazione</b> identifica univocamente l'applicazione che invoca le API e viene consegnato da Visitami al partner.
 Attraverso il <b>Token Applicazione</b> è possibile ottenere e rinnovare il <b>Token Utilizzo</b>, tramite il quale chiamare le API.
@@ -40,8 +40,11 @@ Questa chiamata produrrà un JSON di questo tipo:
 * issued     = id del giorno di richiesta
 * validuntil = id del giorno di fine validità
 * UTCdatetime= data ultimo giorno di validità nel formato yyyyMMdd
-    
-# Ricavare Città (necessario avere Token Utilizzo)
+
+<i>TUTTE LE CHIAMATE DA QUESTO PUNTO IN POI NECESSITANO DEL TOKEN DI UTILIZZO DA PASSARE NELL'HEADER</i>
+
+
+# Ricavare Città
 
 E' previsto un metodo per ricavare l'elenco delle Città di copertura del servizio Visitami abilitate alle API:
 
@@ -57,7 +60,7 @@ Questa chiamata produrrà un JSON di questo tipo:
 * codice   = codice univoco che identifica la città
 * raggio   = raggio in Km di copertura a partire dalle coordinate gps
 
-# Ricavare Elenco delle Categorie di Prestazioni (necessario avere Token Utilizzo)
+# Ricavare Elenco delle Categorie di Prestazioni
 
 E' previsto un metodo per ricavare l'elenco delle Categorie di Prestazioni presenti su Visitami:
 
@@ -69,6 +72,8 @@ Questa chiamata produrrà un JSON di questo tipo:
     
 * IdCategoria   = Id univoco Categoria
 * Nome          = nome della categoria da mostrare
+
+# Ricercare Professionisti
 
 
 
