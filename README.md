@@ -133,7 +133,7 @@ E' possibile invocare questa API specificando le coordinate GPS anzichè la citt
 
 La chiamata produrrà il JSON della chiamata <b>Ricercare Professionisti (Semplice)</b>
 
-# Creazione Utente
+# Creazione Utente (Paziente)
 
 Questo metodo serve per creare una corrispondenza tra utente dell'applicazione chiamante ed utente (paziente) di Visitami. Questo metodo restituisce il <b>Token User</b> univoco del paziente su Visitami e dovrà essere salvato nell'applicazione richiedente (<b>legame tra applicazione richiedente e Visitami</b>) e usato ove richiesto nei successivi metodi.
 
@@ -146,16 +146,46 @@ In particolare: un Utente non presente in Visitami verrà marcato su Visitami co
     
 * nome         = Nome del Paziente
 * cognome      = Cognome del Paziente
-* email        = Email del Paziente (campo su cui viene ricercata la presenza in Visitami)
-* phone        = Telefono del Paziente (opzionale, verrà comunque richiesto prima della prenotazione su Widget Dinamico)
+* email        = Email del Paziente (campo chiave su cui viene ricercata la presenza in Visitami)
+* phone        = Telefono del Paziente (opzionale, verrà comunque richiesto prima della prenotazione su Widget Dinamico). Può essere usato per ricercare la presenza in Visitami.
 * lErr (out)   = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
-La chiamata produrrà un JSON contenente il Token di accesso.
+La chiamata produrrà un JSON contenente il Token di accesso:
 
      {"usertoken":"<TOKEN USER>"}
 
+# Modifica Utente (Paziente)
 
+Questo metodo aggiorna un utente su Visitami.
 
+    Public Function APIGEN_UpdUser(ByVal usertoken As String, ByVal nome As String, ByVal cognome As String, ByVal phone As String, ByRef lErr As String) As String
+   
+* usertoken     = Token Paziente
+* nome          = Nome del Paziente
+* cognome       = Cognome del Paziente
+* phone         = Telefono del Paziente
+* lErr (out)    = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+
+La chiamata produrrà un JSON che indica il successo dell'operazione:
      
+     {"status":"success"}
+
+* status     = success, o la chiamata non ha restituito nulla 
+
+# Eliminazione Utente (Paziente) o eliminazione Legame
+
+Questo metodo serve per eliminare il paziente su Visitami o il relativo <b>Legame</b> con l'applicazione richiedente
+
+    Public Function APIGEN_DeleteUser(ByVal usertoken As String, ByRef lErr As String) As String
+
+* usertoken     = Token Paziente
+* lErr (out)    = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+
+La chiamata produrrà un JSON che indica il successo dell'operazione:
+
+     {"status":"success","type":"<TIPO ELIMINAZIONE>"}
+
+* status     = success, o la chiamata non ha restituito nulla 
+* type       = può assumere: TOTALE/PARZIALE asseconda della marcatura dell'utente su Visitami.
 
 
