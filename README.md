@@ -1,5 +1,5 @@
 # Visitami-API
-Visitami API versione 0.9.2.6
+Visitami API versione 0.9.3.27
 
 Questo progetto contiene l'elenco delle funzionalità per l'integrazione con le API Visitami e un codice di esempio da usare come guida per le chiamate in PHP.
 
@@ -229,7 +229,7 @@ Per ottenere il <b>Token Prenotazione</b> è necessario invocare il seguente met
 
 Il metodo restituisce direttamente un JSON di questo tipo:
 
-    {"TokenPreno":"<TOKEN PRENO"}
+    {"TokenPreno":"<TOKEN PRENO>"}
 
 * TokenPreno     = token di prenotazione, altrimenti il metodo non ha restituito nulla
 
@@ -249,7 +249,7 @@ Per ottenere il <b>Token Prenotazione</b> è possibile invocare il seguente meto
 
 Il metodo restituisce direttamente un JSON di questo tipo:
 
-    {"TokenPreno":"<TOKEN PRENO"}
+    {"TokenPreno":"<TOKEN PRENO>"}
 
 * TokenPreno     = token di prenotazione, altrimenti il metodo non ha restituito nulla
 
