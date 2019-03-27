@@ -266,7 +266,7 @@ E' disponibile un metodo che restituisce le prenotazioni dell'utente Paziente
 
 Il metodo restituisce un JSON tipo questo:
 
-<b>Al momento in fase di definizione</b>
+    [{"idPreno":"P03092","idPrenoVisitami":12434,"single_prenotoken":"TXRCdHoycklSUVl3V1ZrTDhCcFp3VHRmWlIwd2dEcDY2ekhOdDNrMEhDZz0=","Professionista":"Dr. Francesco Bianchi","IdProfessionista":1117,"UrlImmagine":"https://dev.visitamiapp.com/getpic?PicID=!PROF@1117\\med\u0026Token=TXRCdHoycklSUVl3V1ZrTDhCcFp3UVVWaDg1c0szcGR2b2YyQjFVd1M5ND0=\u0026MyToken=TXRCdHoycklSUVl3V1ZrTDhCcFp3UVVWaDg1c0szcGR2b2YyQjFVd1M5ND0=","TokenProf":"TXRCdHoycklSUVl3V1ZrTDhCcFp3UVVWaDg1c0szcGR2b2YyQjFVd1M5ND0=","Specializzazione":"medico generico","Stato":"APPUNTAMENTO CONFERMATO","idStato":1,"OkCancellazione":false,"IdPrestazione":184,"NomePrestazione":"Visita Medica Generica","Data":"Domenica 24 Marzo","Ora":"13:15","Indirizzo":"Man, Via Giuseppe Verdi, 2/A, Milano, 20121 MI cit: verde","Tariffa":"100-200€","TariffaScontata":"","Sconto":"","ScontoD":0}, ... ]
 
 # Cancellazione di una Prenotazione User
 
