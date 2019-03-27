@@ -268,6 +268,27 @@ Il metodo restituisce un JSON tipo questo:
 
     [{"idPreno":"P03092","idPrenoVisitami":12434,"single_prenotoken":"TXRCdHoycklSUVl3V1ZrTDhCcFp3VHRmWlIwd2dEcDY2ekhOdDNrMEhDZz0=","Professionista":"Dr. Francesco Bianchi","IdProfessionista":1117,"UrlImmagine":"https://dev.visitamiapp.com/getpic?PicID=!PROF@1117\\med\u0026Token=TXRCdHoycklSUVl3V1ZrTDhCcFp3UVVWaDg1c0szcGR2b2YyQjFVd1M5ND0=\u0026MyToken=TXRCdHoycklSUVl3V1ZrTDhCcFp3UVVWaDg1c0szcGR2b2YyQjFVd1M5ND0=","TokenProf":"TXRCdHoycklSUVl3V1ZrTDhCcFp3UVVWaDg1c0szcGR2b2YyQjFVd1M5ND0=","Specializzazione":"medico generico","Stato":"APPUNTAMENTO CONFERMATO","idStato":1,"OkCancellazione":false,"IdPrestazione":184,"NomePrestazione":"Visita Medica Generica","Data":"Domenica 24 Marzo","Ora":"13:15","Indirizzo":"Man, Via Giuseppe Verdi, 2/A, Milano, 20121 MI cit: verde","Tariffa":"100-200€","TariffaScontata":"","Sconto":"","ScontoD":0}, ... ]
 
+* idPreno           = Codice della Prenotazione
+* idPrenoVisitami   = Id interno prenotazione in Visitami
+* single_prenotoken = <b>Token Prenotazione Singola</b> da usare nella APIGEN_DeletePrenoUser
+* Professionista    = Nome del professionista
+* IdProfessionista  = Id univoco del professionista in Visitami
+* UrlImmagine       = URL dell'immagine profilo del professionista
+* TokenProf         = Token Professionista/Struttura
+* Specializzazione  = Nome della specializzazione principale
+* Stato             = Stato dell'Appuntamento
+* idStato           = Codice stato interno a Visitami
+* OkCancellazione   = Indica se è possibile disdire l'appuntamento
+* IdPrestazione     = Id univoco della prestazione in Visitami
+* NomePrestazione   = Nome della Prestazione
+* Data              = Data dell'appuntamento
+* Ora               = Ora dell'appuntamento
+* Indirizzo         = Luogo dell'appuntamento
+* Tariffa           = Tariffa prevista per la prestazione. Le tariffe sono espresse in € e possono essere variabili (per es. 50-70€)
+* TariffaScontata   = Se presente uno sconto, rappresenta il prezzo che pagherà il paziente
+* Sconto            = Label che rappresenta lo Sconto % eventualmente applicato
+* ScontoD           = Valore decimale dello sconto applicato. 0=nessuno sconto
+
 # Cancellazione di una Prenotazione User
 
 E' disponibile un metodo per cancellare una prenotazione effettuata:
