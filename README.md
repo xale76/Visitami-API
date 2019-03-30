@@ -1,5 +1,5 @@
 # Visitami-API
-Visitami API versione 0.9.3.27
+Visitami API versione 0.9.3.30
 
 Questo progetto contiene l'elenco delle funzionalità per l'integrazione con le API Visitami e un codice di esempio da usare come guida per le chiamate in PHP.
 
