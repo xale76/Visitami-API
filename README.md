@@ -131,6 +131,20 @@ Questa chiamata produrrà un JSON di questo tipo:
   
 <i>vedere esempio nel file <b>ricerca.php</b></i>
 
+# Ricerca dei Professionisti Paginata (Semplice)
+
+Questo metodo restituisce lo stesso elenco di professionisti previsto per il metodo APIGEN_DoSearchSimple ma diviso per pagine, ciascuna contenente 10 risultati.
+
+    Public Function APIGEN_DoSearchSimplePag(ByVal idcate As Integer, ByVal codCitta As String, ByVal pindex As Integer, ByRef totpages As Integer, ByRef lErr As String) As String
+
+* idcate         = Id univoco Categoria Prestazioni
+* codCitta       = Codice Univoco che identifica la città
+* pindex         = indice di pagina (basata 0, per cui 0=prima pagina, 1=seconda pagina ...)
+* totpages (out) = restituisce il numero di pagine della ricerca
+* lErr (out)     = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+
+Questa chiamata produrrà un JSON uguale al relativo metodo non paginato.
+
 # Ricerca dei Professionisti
 
 E' possibile invocare questa API specificando le coordinate GPS anzichè la città
@@ -144,6 +158,22 @@ E' possibile invocare questa API specificando le coordinate GPS anzichè la citt
 * lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 La chiamata produrrà il JSON della chiamata <b>Ricercare Professionisti (Semplice)</b>
+
+# Ricerca dei Professionisti Paginata
+
+Questo metodo restituisce lo stesso elenco di professionisti previsto per il metodo APIGEN_DoSearch ma diviso per pagine, ciascuna contenente 10 risultati.
+
+    Public Function APIGEN_DoSearchPag(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByVal pindex As Integer, ByRef totpages As Integer, ByRef lErr As String) As String
+    
+* idcate         = Id univoco Categoria Prestazioni
+* lat            = stringa della latitudine (usare ".", es. "45.12312312")
+* lng            = stringa della longitudine (usare ".", es. "9.12312312")
+* km             = raggio di ricerca in Km
+* pindex         = indice di pagina (basata 0, per cui 0=prima pagina, 1=seconda pagina ...)
+* totpages (out) = restituisce il numero di pagine della ricerca
+* lErr (out)     = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+
+Questa chiamata produrrà un JSON uguale al relativo metodo non paginato.
 
 # Creazione Utente (Paziente)
 
