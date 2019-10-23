@@ -1,5 +1,5 @@
 # Visitami-API
-Visitami API versione 0.9.3.30
+Visitami API versione 0.9.3.31
 
 Questo progetto contiene l'elenco delle funzionalità per l'integrazione con le API Visitami e un codice di esempio da usare come guida per le chiamate in PHP.
 
@@ -334,6 +334,26 @@ Il metodo restituisce un JSON tipo questo:
      {"status":"success","type":""}
 
 * status     = success, o la chiamata non ha restituito nulla 
+
+# Info Professionista
+
+Questo metodo serve a ricevere informazioni base sul professionista, come albo, specialità, prfessione etc.
+
+    Public Function APIGEN_GetInfoProf(ByVal email As String, ByRef lErr As String) As String
+
+* email         = email del professionista
+* lErr (out)    = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
+
+La chiamata produrrà un JSON come quello seguente:
+
+     {"spec1":47,"prof":43,"spec2":48,"spec3":65,"spec4":1,"albo":"MI-1222XX"}
+
+* spec1      = id specialità principale
+* prof       = id professione legata alla specialità principale
+* spec2      = id specialità 2 (o 0 se non ha altra specialità)
+* spec3      = id specialità 3 (o 0 se non ha altra specialità)
+* spec4      = id specialità 4 (o 0 se non ha altra specialità)
+
 
 # Widget Dinamico di Prenotazione (Javascript)
 
