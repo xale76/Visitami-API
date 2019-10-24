@@ -346,14 +346,14 @@ Questo metodo serve a ricevere informazioni base sul professionista, come albo, 
 
 La chiamata produrrà un JSON come quello seguente:
 
-     {"spec1":47,"prof":43,"spec2":48,"spec3":65,"spec4":1,"albo":"MI-1222XX"}
+     {"spec1":47,"prof":43,"spec2":48,"spec3":65,"spec4":1,"albo":"MI-1222XX","pic":"http://..."}
 
 * spec1      = id specialità principale
 * prof       = id professione legata alla specialità principale
 * spec2      = id specialità 2 (o 0 se non ha altra specialità)
 * spec3      = id specialità 3 (o 0 se non ha altra specialità)
 * spec4      = id specialità 4 (o 0 se non ha altra specialità)
-
+* pic        = URL immagine profilo
 
 # Widget Dinamico di Prenotazione (Javascript)
 
