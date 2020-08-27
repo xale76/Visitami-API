@@ -96,10 +96,11 @@ Questo metodo restituisce l'elenco dei professionisti disponibili per una data c
 L'elenco del professionisti restituiti mostra solo la prima disponibilità per la <i>prestazione base</i> della categoria prestazioni richiesta (ad es. se categoria = "Medico Generico", prestazione di base = "Visita medica generica" etc). 
 L'elenco restituito è ordinato per prima disponibilità.
 
-    Public Function APIGEN_DoSearchSimple(ByVal idcate As Integer, ByVal codCitta As String, ByRef lErr As String) As String
+    Public Function APIGEN_DoSearchSimpleV2(ByVal idcate As Integer, ByVal codCitta As String, ByRef lErr As String) As String
 
 * idcate     = Id univoco Categoria Prestazioni
-* codCitta   = Codice Univoco che identifica la città
+* codCitta   = Codice Univoco che identifica la città (passare stringa vuota per prestazioni video)
+* video      = true o false a seconda se bisogna ricercare una prestazione video oppure dal vivo
 * lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 Questa chiamata produrrà un JSON di questo tipo:
@@ -135,12 +136,13 @@ Questa chiamata produrrà un JSON di questo tipo:
 
 Questo metodo restituisce lo stesso elenco di professionisti previsto per il metodo APIGEN_DoSearchSimple ma diviso per pagine, ciascuna contenente 10 risultati.
 
-    Public Function APIGEN_DoSearchSimplePag(ByVal idcate As Integer, ByVal codCitta As String, ByVal pindex As Integer, ByRef totpages As Integer, ByRef lErr As String) As String
+    Public Function APIGEN_DoSearchSimplePagV2(ByVal idcate As Integer, ByVal codCitta As String, ByVal pindex As Integer, ByRef totpages As Integer, ByRef lErr As String) As String
 
 * idcate         = Id univoco Categoria Prestazioni
-* codCitta       = Codice Univoco che identifica la città
+* codCitta       = Codice Univoco che identifica la città (passare stringa vuota nel caso di ricerca video)
 * pindex         = indice di pagina (basata 0, per cui 0=prima pagina, 1=seconda pagina ...)
 * totpages (out) = restituisce il numero di pagine della ricerca
+* video          = true o false a seconda se bisogna ricercare una prestazione video oppure dal vivo
 * lErr (out)     = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 Questa chiamata produrrà un JSON uguale al relativo metodo non paginato.
@@ -149,12 +151,13 @@ Questa chiamata produrrà un JSON uguale al relativo metodo non paginato.
 
 E' possibile invocare questa API specificando le coordinate GPS anzichè la città
 
-    Public Function APIGEN_DoSearch(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByRef lErr As String) As String
+    Public Function APIGEN_DoSearchV2(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByRef lErr As String) As String
     
 * idcate     = Id univoco Categoria Prestazioni
-* lat        = stringa della latitudine (usare ".", es. "45.12312312")
-* lng        = stringa della longitudine (usare ".", es. "9.12312312")
-* km         = raggio di ricerca in Km
+* lat        = stringa della latitudine (usare ".", es. "45.12312312" o stringa vuota per ricerca video)
+* lng        = stringa della longitudine (usare ".", es. "9.12312312" o stringa vuota per ricerca video)
+* km         = raggio di ricerca in Km (passare 0 per ricerca video)
+* video      = true o false a seconda se bisogna ricercare una prestazione video oppure dal vivo
 * lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 La chiamata produrrà il JSON della chiamata <b>Ricercare Professionisti (Semplice)</b>
@@ -163,14 +166,15 @@ La chiamata produrrà il JSON della chiamata <b>Ricercare Professionisti (Sempli
 
 Questo metodo restituisce lo stesso elenco di professionisti previsto per il metodo APIGEN_DoSearch ma diviso per pagine, ciascuna contenente 10 risultati.
 
-    Public Function APIGEN_DoSearchPag(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByVal pindex As Integer, ByRef totpages As Integer, ByRef lErr As String) As String
+    Public Function APIGEN_DoSearchPagV2(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByVal pindex As Integer, ByRef totpages As Integer, ByRef lErr As String) As String
     
 * idcate         = Id univoco Categoria Prestazioni
-* lat            = stringa della latitudine (usare ".", es. "45.12312312")
-* lng            = stringa della longitudine (usare ".", es. "9.12312312")
-* km             = raggio di ricerca in Km
+* lat            = stringa della latitudine (usare ".", es. "45.12312312" o stringa vuota per ricerca video) 
+* lng            = stringa della longitudine (usare ".", es. "9.12312312" o stringa vuota per ricerca video)
+* km             = raggio di ricerca in Km (passare 0 per ricerca video)
 * pindex         = indice di pagina (basata 0, per cui 0=prima pagina, 1=seconda pagina ...)
 * totpages (out) = restituisce il numero di pagine della ricerca
+* video      = true o false a seconda se bisogna ricercare una prestazione video oppure dal vivo
 * lErr (out)     = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 Questa chiamata produrrà un JSON uguale al relativo metodo non paginato.
