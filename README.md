@@ -258,7 +258,7 @@ Per ottenere il <b>Token Prenotazione</b> è necessario invocare il seguente met
     
 * usertoken     = Token User
 * idprest       = Id della prestazione
-* codCitta   = Codice Univoco che identifica la città
+* codCitta   = Codice Univoco che identifica la città (passare stringa vuota per prenotazioni di videovisite)
 * lErr (out) = parametro in uscita valorizzato con l'eventuale errore se il metodo ritorna emtpystring
 
 Il metodo restituisce direttamente un JSON di questo tipo:
