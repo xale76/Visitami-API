@@ -96,7 +96,7 @@ Questo metodo restituisce l'elenco dei professionisti disponibili per una data c
 L'elenco del professionisti restituiti mostra solo la prima disponibilità per la <i>prestazione base</i> della categoria prestazioni richiesta (ad es. se categoria = "Medico Generico", prestazione di base = "Visita medica generica" etc). 
 L'elenco restituito è ordinato per prima disponibilità.
 
-    Public Function APIGEN_DoSearchSimpleV2(ByVal idcate As Integer, ByVal codCitta As String, ByRef lErr As String) As String
+    Public Function APIGEN_DoSearchSimpleV2(ByVal idcate As Integer, ByVal codCitta As String, ByVal video as Boolean, ByRef lErr As String) As String
 
 * idcate     = Id univoco Categoria Prestazioni
 * codCitta   = Codice Univoco che identifica la città (passare stringa vuota per prestazioni video)
@@ -136,7 +136,7 @@ Questa chiamata produrrà un JSON di questo tipo:
 
 Questo metodo restituisce lo stesso elenco di professionisti previsto per il metodo APIGEN_DoSearchSimple ma diviso per pagine, ciascuna contenente 10 risultati.
 
-    Public Function APIGEN_DoSearchSimplePagV2(ByVal idcate As Integer, ByVal codCitta As String, ByVal pindex As Integer, ByRef totpages As Integer, ByRef lErr As String) As String
+    Public Function APIGEN_DoSearchSimplePagV2(ByVal idcate As Integer, ByVal codCitta As String, ByVal pindex As Integer, ByRef totpages As Integer, ByVal video as Boolean, ByRef lErr As String) As String
 
 * idcate         = Id univoco Categoria Prestazioni
 * codCitta       = Codice Univoco che identifica la città (passare stringa vuota nel caso di ricerca video)
@@ -151,7 +151,7 @@ Questa chiamata produrrà un JSON uguale al relativo metodo non paginato.
 
 E' possibile invocare questa API specificando le coordinate GPS anzichè la città
 
-    Public Function APIGEN_DoSearchV2(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByRef lErr As String) As String
+    Public Function APIGEN_DoSearchV2(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByVal video as Boolean, ByRef lErr As String) As String
     
 * idcate     = Id univoco Categoria Prestazioni
 * lat        = stringa della latitudine (usare ".", es. "45.12312312" o stringa vuota per ricerca video)
@@ -166,7 +166,7 @@ La chiamata produrrà il JSON della chiamata <b>Ricercare Professionisti (Sempli
 
 Questo metodo restituisce lo stesso elenco di professionisti previsto per il metodo APIGEN_DoSearch ma diviso per pagine, ciascuna contenente 10 risultati.
 
-    Public Function APIGEN_DoSearchPagV2(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByVal pindex As Integer, ByRef totpages As Integer, ByRef lErr As String) As String
+    Public Function APIGEN_DoSearchPagV2(ByVal idcate As Integer, ByVal lat As String, ByVal lng As String, ByVal km as integer, ByVal pindex As Integer, ByRef totpages As Integer, ByVal video as Boolean, ByRef lErr As String) As String
     
 * idcate         = Id univoco Categoria Prestazioni
 * lat            = stringa della latitudine (usare ".", es. "45.12312312" o stringa vuota per ricerca video) 
