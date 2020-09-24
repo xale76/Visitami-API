@@ -322,6 +322,8 @@ Il metodo restituisce un JSON tipo questo:
 * TariffaScontata   = Se presente uno sconto, rappresenta il prezzo che pagherà il paziente
 * Sconto            = Label che rappresenta lo Sconto % eventualmente applicato
 * ScontoD           = Valore decimale dello sconto applicato. 0=nessuno sconto
+* isVideo           = Se true è una videocall
+* LinkVideo         = se è una videocall contiene l'url della videocall
 
 # Cancellazione di una Prenotazione User
 
