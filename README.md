@@ -368,5 +368,16 @@ Il Widget da solo carica componenti quali jQuery o stili associati. E' modificab
 
     <!-- INIZIO CODICE WIDGET VISITAMIHTML5/ALTRO --><script type="text/javascript" src="https://www.visitamiapp.com/widget?token=<TOKEN PROF>&TokenPreno=<TOKEN PRENO>&idluogo=0&nojquery=auto&qfit=1&urlback=&maincolor=f07f22&cpayload=&ShowNomePrest=1&fbw=&fbmleft=&showdispora=0&idesterno=&bfontsize=&nomobile=0&showinfo=0&nopayload=1&fbscope=1&no_orari_ext=0"></script><div id="VISITAMI_CONTAINER_INFO" style="background-color:white;position:relative;width:396px;height:262px;max-width:99%;font-size:0.9em;line-height:1.2em"></div><div style="position:relative;width:396px;height:446px;max-width:99%;font-size:0.9em"><div id="VISITAMI_CONTAINER" style="position:absolute;width:100%;height:100%;top:0;left:0;"></div><div style="font-size: 0.9em; width: 100%; height: 18px; line-height: 18px; position: absolute; bottom: 0px; left: 0px; text-align: right;">servizio gratuito powered by <span style="color:#f07f22"><b><a href="https://www.visitamiapp.com/" target="_blank" style="color:#f07f22">Visitami</a></b></span></div></div><!-- FINE CODICE WIDGET VISITAMI -->
 
+# Fissare un appuntamento in Videovisita
+
+Per fissare un appuntamento in videovisita, è possibile utilizzare anche un endpoint rest
+
+    <URL>/mdf/videovisita
+    <i> Sviluppo </i>
+    https://demo.visitamiapp.com/ 
+
+    <i> Produzione </i>
+    https://www.visitamiapp.com/ 
 
 
+https://www.getpostman.com/collections/bccf45e2fd4d5d61d741
