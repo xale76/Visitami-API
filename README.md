@@ -379,5 +379,35 @@ Per fissare un appuntamento in videovisita, è possibile utilizzare anche un end
     <i> Produzione </i>
     https://www.visitamiapp.com/ 
 
+A questo endpoint vanno passati:
 
-https://www.getpostman.com/collections/bccf45e2fd4d5d61d741
+* data       = in formato YYYYMMDD rappresenta la data dell'appuntamento
+* ora        = in formato HHmm rappresenta l'ora dell'appuntamento
+* email_doc  = email del medico a cui sarà inviato il link per collegamento a videovisita
+* nome_doc   = nome del medico
+* durata_p   = durata in minuti che viene poi rappresentata come slot da 5' 
+* email_pz   = email del paziente (non può coincidere con quella del medico)
+* nome_pz    = nome del paziente
+* sesso_pz   = M/F
+* status     = 0 nuova prenotazione, 1 modifica, 2 eliminazione
+* sendemail  = 1 se il sistema deve inviare automaticamente le email di notifica, 0 se invece non si vuole che il sistema mandi notifiche
+* roomid     = vuoto nel caso di creazione (status 0), con il roomid da modificare o eliminare nel caso di status 1 o 2
+
+L'api è protetta da chiamata attraverso un'autenticazione basic plain text da passare nell'header. Per completare l'autenticazione all'endpoint è necessario quindi essere in possesso di un client-id e un client-secret forniti da Paginemediche.
+
+la chiamata produrrà un json come quello seguente:
+    
+    {"status": 200, "error": "", "results": 1, "timestamp": "2021-11-22 16:33:15", "data": {"idRoom": "MGZLbVJyRDl0Qnc2ck1sTnUzUzFoUT09", "linkDoc": 
+    "https://dev.visitamiapp.com/videocall/MGZLbVJyRDl0Qnc2ck1sTnUzUzFoUT09/0/TXRCdHoycklSUVl3V1ZrTDhCcFp3ZUt0dy9qTnNBQWZkZndJMlJjSXcrTmFGRFJkT255aFN1a05vZEs5Q0dNUA==/owner",
+    "linkPz":
+    "https://dev.visitamiapp.com/videocall/MGZLbVJyRDl0Qnc2ck1sTnUzUzFoUT09/0/TXRCdHoycklSUVl3V1ZrTDhCcFp3Yis2VHpDTVhTYUhSY1FLT1JyVjlUSkNYU1ByTWJ6dEhFa0ZXcVNUQVRWdg==/guest"} }
+
+in cui (a parte lo stato della chiamata e l'eventuale errore ricevuto) sono presenti in data:
+
+* idRoom     = id univoco della room creata che servirà nel caso di modifica/cancellazione
+* linkDoc    = link per connessione medico (il medico la riceverà anche in email nel caso si sia scelto opzione sendmail=1)
+* linkPz     = link per connessione paziente (il paziente la riceverà anche in email nel caso si sia scelto opzione sendmail=1)
+
+E' disponibile una collection postman per provare le chiamate al seguente indirizzo:
+
+    https://www.getpostman.com/collections/bccf45e2fd4d5d61d741   
