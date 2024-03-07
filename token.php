@@ -14,7 +14,7 @@ try {
 
   if ($strResult!='')
   {
-    $objRes=(json_decode());
+    $objRes=(json_decode($strResult));
     print_r($objRes);
   }
   else
